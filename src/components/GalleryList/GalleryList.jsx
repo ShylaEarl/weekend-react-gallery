@@ -1,16 +1,12 @@
 import GalleryItem from '../GalleryItem/GalleryItem.jsx';
 
-function GalleryList (props){
-    //console.log('gallery list props are:', props);
-    // for(let i = 0; i < props.galleryList.length; i++) {
-    //     console.log('in gallery list loop');
-    // }
-    return(
+function GalleryList(props) {
+
+    return (
         <div>
             {props.galleryList.map(image =>
-                <GalleryItem 
-                    //key={image.id} 
-                    // image={image}
+                <GalleryItem
+                    key={image.id}
                     id={image.id}
                     path={image.path}
                     description={image.description}
@@ -24,5 +20,3 @@ function GalleryList (props){
 
 export default GalleryList;
 
-//updateLikes={props.updateLikes}
-//image was showing up with (<GalleryItem key={image.id} image={image}/>)
