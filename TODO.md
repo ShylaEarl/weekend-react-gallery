@@ -22,7 +22,7 @@
 - [] Update the gallery each time a like button is clicked.
 
 ## Stretch Goals
-- [] Use Git Branching
+- [x] Use Git Branching
 - []
 
 Features
