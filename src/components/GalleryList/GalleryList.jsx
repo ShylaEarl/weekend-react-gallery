@@ -3,7 +3,7 @@ import GalleryItem from '../GalleryItem/GalleryItem.jsx';
 function GalleryList(props) {
 
     return (
-        <div>
+        <div className="background">
             {props.galleryList.map(image =>
                 <GalleryItem
                     key={image.id}

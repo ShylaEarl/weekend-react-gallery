@@ -27,15 +27,26 @@ function GalleryItem(props) {
             });
     }
 
+    //conditional rendering for like message 
+    const getMessage = () => {
+        if(props.likes === 1) {
+          //singular because it is 1 time
+          return (<p>{props.likes} person loves this.</p>)
+        }else{
+          //zero or multiple 'times' so plural
+          return (<p>{props.likes} people love this.</p>)
+        }
+      }//end getMessage
+
     return (
-        <div className="image" >
-            {swap && <img onClick={imageSwap} src={props.path} alt={props.description} width='150' />}
+        <div className="imageDiv" >
+            {swap && <img onClick={imageSwap} className="image" src={props.path} alt={props.description} width='150' />}
             {!swap && <div onClick={imageSwap} className="description">{props.description}</div>}
             <br></br>
-            <button onClick={updateLikes} data-id={props.id}>I Like It!</button>
+            <button onClick={updateLikes} className="loveButton" data-id={props.id}>Love It!</button>
             <br></br>
-            <p>Likes: {props.likes}</p>
-        </div>
+            {getMessage()}
+        </div> 
     )
 }
 

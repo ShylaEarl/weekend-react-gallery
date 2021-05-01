@@ -1,5 +1,26 @@
+.imageDiv{
+    display: inline-block;
+    margin-right: 15px;
+    margin-bottom: 15px;
+}
+
+.image{
+    border: 2px solid #333533;
+}
+
 .description{
-    border: 1px solid black;
+    background-color: #333533;
+    color: #E8EDDF;
+    border: 1px solid #E8EDDF;
+    border: double;
     width: 150px;
-    
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+}
+
+.loveButton{
+    background-color: #E8EDDF;
+    border-radius: 5px;
+    padding: 5px 45px;
+    margin-top: 1rem;
 }
