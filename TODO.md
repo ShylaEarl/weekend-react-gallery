@@ -15,7 +15,7 @@
 - [x] Create a new component called GalleryItem.jsx and pass it the
      individual gallery item via props.
 - [x] Update the GalleryList to use this component to display an image.
-- [] Swap the image with the description on click w/ conditional rendering.
+- [x] Swap the image with the description on click w/ conditional rendering.
 - [] Display the number likes for each item and include a like button.
 - [] When the like button is clicked, use Axios to update (PUT) the like
      count /gallery/like/:id.
@@ -23,16 +23,13 @@
 
 ## Stretch Goals
 - [x] Use Git Branching
-- []
+- [] Move the data into a database (postgresql) named react_gallery
+- [] include a database.sql file documenting your database tables
+- [] Add a form (new component) that allows a user to POST a new image
+- [] Client side form (use absolute URL for images)
+- [] Server side route for posting an image
+- [] Ability to delete a gallery item
+- [] Add styling with Material-UI https://material-ui.com/
+        Implement uppy for image upload
 
-Features
-Move the data into a database (postgresql)
-name your database react_gallery
-include a database.sql file documenting your database tables
-Add a form (new component) that allows a user to POST a new gallery item
-Client side form (use absolute URL for images)
-Server side route for posting an image
-Ability to delete a gallery item
-Add styling with Material-UI https://material-ui.com/
-Implement uppy for image upload
 NOTE: The above stretch goals are intended to be completed in order.
