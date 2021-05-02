@@ -26,8 +26,9 @@
 - [x] Move the data into a database (postgresql) named react_gallery
 - [x] include a database.sql file documenting your database tables
 - [x] Add a form (new component) that allows a user to POST a new image
-- [] Client side form (use absolute URL for images)
-- [] Server side route for posting an image
+- [x] Client side form (use absolute URL for images)
+- [x] Server side route for posting an image
+     - [] update POST route to connect to DB too
 - [] Ability to delete a gallery item
 - [] Add styling with Material-UI https://material-ui.com/
         Implement uppy for image upload

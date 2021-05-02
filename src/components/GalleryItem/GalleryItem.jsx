@@ -17,7 +17,7 @@ function GalleryItem(props) {
         let id = event.currentTarget.dataset.id;
         console.log('like button clicked for image:', id);
 
-        axios.put(`/gallery/like/${id}`)
+        axios.put(`/gallery/${id}`)
             .then((response) => {
                 //console.log('in PUT', response);
                 props.getImage();
