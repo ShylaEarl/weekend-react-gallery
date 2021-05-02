@@ -29,24 +29,58 @@ function GalleryItem(props) {
 
     //conditional rendering for like message 
     const getMessage = () => {
-        if(props.likes === 1) {
-          //singular because it is 1 time
-          return (<p>{props.likes} person loves this.</p>)
-        }else{
-          //zero or multiple 'times' so plural
-          return (<p>{props.likes} people love this.</p>)
+        if (props.likes === 1) {
+            //singular because it is 1 time
+            return (<p>{props.likes} person loves this.</p>)
+        } else {
+            //zero or multiple 'times' so plural
+            return (<p>{props.likes} people love this.</p>)
         }
-      }//end getMessage
+    }//end getMessage
+
+    //DELETE Request to remove image
+    const deleteImage = (event) => {
+        let id = event.currentTarget.dataset.id;
+        console.log('Delete button clicked for', id);
+
+        axios.delete(`/gallery/${id}`)
+            .then(response => {
+                console.log('in DELETE', response);
+                props.getImage();
+            })
+            .catch(error => {
+                console.log('Error with Delete request', error);
+            });
+    }
 
     return (
         <div className="imageDiv" >
-            {swap && <img onClick={imageSwap} className="image" src={props.path} alt={props.description} width='150' />}
-            {!swap && <div onClick={imageSwap} className="description">{props.description}</div>}
+            {swap && <img
+                onClick={imageSwap}
+                className="image"
+                src={props.path}
+                alt={props.description}
+                width='150'
+            />}
+            {!swap && <div
+                onClick={imageSwap}
+                className="description">
+                {props.description}
+            </div>}
             <br></br>
-            <button onClick={updateLikes} className="loveButton" data-id={props.id}>Love It!</button>
+            <button onClick={updateLikes}
+                className="loveButton"
+                data-id={props.id}>
+                Love It!
+            </button>
             <br></br>
             {getMessage()}
-        </div> 
+            <button onClick={deleteImage}
+                className="deleteButton"
+                data-id={props.id}>
+                Delete
+            </button>
+        </div>
     )
 }
 

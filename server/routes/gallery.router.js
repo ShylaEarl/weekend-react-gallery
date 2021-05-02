@@ -14,7 +14,7 @@ router.put('/:id', (req, res) => {
             console.log('in PUT', error);
             res.sendStatus(500);
         });
-});
+});//end PUT Route
 
 // GET Route
 router.get('/', (req, res) => {
@@ -38,9 +38,22 @@ router.post('/', (req, res) => {
         })
         .catch(error => {
             console.log('error in POST', error);
-        res.sendStatus(500); 
+            res.sendStatus(500);
         });
 }); //END POST Route
+
+//DELETE Route
+router.delete('/:id', (req, res) => {
+    let sqlString = 'DELETE FROM gallery WHERE id=$1;';
+    pool.query(sqlString, [req.params.id])
+        .then(result => {
+            res.sendStatus(200);
+        })
+        .catch(error => {
+            console.log('error in delete', error);
+            res.sendStatus(500);
+        });
+});//end DELETE Route
 
 module.exports = router;
 
