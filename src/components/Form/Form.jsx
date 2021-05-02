@@ -1,5 +1,6 @@
 import react, {useState} from 'react';
 import axios from 'axios';
+import './Form.css';
 
 function Form({getImage}){
     const [path, setPath] = useState('');
@@ -35,18 +36,20 @@ function Form({getImage}){
     }//end handleSubmit
 
     return(
-        <form onSubmit={handleSubmit}>
+        <form className="form" onSubmit={handleSubmit}>
             <input onChange={(event) => setPath(event.target.value)}
                 value={path}
                 type="text"
                 placeholder="Image URL"
+                className="pathInput"
             />
             <input onChange={(event) => setDescription(event.target.value)}
                 value={description}
                 type="text"
                 placeholder="Description"
+                className="descriptionInput"
             />
-            <button>Click To Add Image</button>
+            <button className="addButton">Click To Add Image</button>
         </form>
     );
 }//end Form
