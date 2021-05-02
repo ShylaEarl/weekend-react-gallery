@@ -1,8 +1,8 @@
-import react, {useState} from 'react';
+import react, { useState } from 'react';
 import axios from 'axios';
-import './Form.css';
+import './GalleryForm.css';
 
-function Form({getImage}){
+function GalleryForm({ getImage }) {
     const [path, setPath] = useState('');
     const [description, setDescription] = useState('');
 
@@ -16,17 +16,17 @@ function Form({getImage}){
 
         //POST route to add new image object
         axios.post('/gallery', newImage)
-        .then(response => {
-            console.log('in POST', response);
-            //update gallery
-            getImage();
-            //clear updates once you get a response back
-            setPath('');
-            setDescription('');
-        })
-        .catch(error => {
-            console.log('in POST', error);
-        });
+            .then(response => {
+                console.log('in POST', response);
+                //update gallery
+                getImage();
+                //clear updates once you get a response back
+                setPath('');
+                setDescription('');
+            })
+            .catch(error => {
+                console.log('in POST', error);
+            });
     }//end addImage
 
     //on click, POST new image object
@@ -35,7 +35,7 @@ function Form({getImage}){
         addImage();
     }//end handleSubmit
 
-    return(
+    return (
         <form className="form" onSubmit={handleSubmit}>
             <input onChange={(event) => setPath(event.target.value)}
                 value={path}
@@ -52,6 +52,6 @@ function Form({getImage}){
             <button className="addButton">Click To Add Image</button>
         </form>
     );
-}//end Form
+}//end GalleryForm
 
-export default Form;
+export default GalleryForm;

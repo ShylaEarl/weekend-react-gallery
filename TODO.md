@@ -28,7 +28,7 @@
 - [x] Add a form (new component) that allows a user to POST a new image
 - [x] Client side form (use absolute URL for images)
 - [x] Server side route for posting an image
-     - [] update POST route to connect to DB too
+     - [x] update POST route to connect to DB too
 - [] Ability to delete a gallery item
 - [] Add styling with Material-UI https://material-ui.com/
         Implement uppy for image upload

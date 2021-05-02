@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
 import axios from 'axios';
+import GalleryHeader from '../GalleryHeader/GalleryHeader.jsx';
 import GalleryList from '../GalleryList/GalleryList.jsx';
-import Form from '../Form/Form.jsx';
+import GalleryForm from '../GalleryForm/GalleryForm.jsx';
 
 function App() {
 
@@ -29,11 +30,8 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
-        <h1 className="App-title">React Photo Gallery</h1>
-      </header>
-      <Form getImage={getImage}/> 
-      {/* do I need getImage on either of these lines? */}
+      <GalleryHeader />
+      <GalleryForm getImage={getImage} />
       <GalleryList galleryList={galleryList} getImage={getImage} />
     </div>
   );
