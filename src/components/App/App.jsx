@@ -30,7 +30,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1 className="App-title">Gallery of My (home) Life</h1>
+        <h1 className="App-title">React Photo Gallery</h1>
       </header>
       <Form getImage={getImage}/> 
       {/* do I need getImage on either of these lines? */}

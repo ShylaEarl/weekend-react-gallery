@@ -1,0 +1,20 @@
+.form{
+    padding: 1rem;
+}
+
+.pathInput{
+    padding: .25rem 25px;
+    margin: .5rem;
+    text-align: left;
+}
+
+.descriptionInput{
+    padding: .25rem 25px;
+    margin: .5rem;
+}
+
+.addButton{
+    border-radius: 5px;
+    padding: .25rem 25px;
+    margin: .5rem;
+}
