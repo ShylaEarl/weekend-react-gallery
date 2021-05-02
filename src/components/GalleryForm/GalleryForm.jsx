@@ -12,12 +12,12 @@ function GalleryForm({ getImage }) {
             path: path,
             description: description
         }//end newImage
-        console.log('new image object is:', newImage);
+        //console.log('new image object is:', newImage);
 
         //POST route to add new image object
         axios.post('/gallery', newImage)
             .then(response => {
-                console.log('in POST', response);
+                //console.log('in POST', response);
                 //update gallery
                 getImage();
                 //clear updates once you get a response back

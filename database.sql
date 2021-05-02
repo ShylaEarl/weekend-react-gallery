@@ -15,4 +15,16 @@ VALUES ('images/Apothecary.jpg', 'A2O Apothecary Cabinet', 0),
 ('images/Crystals.jpg', 'Assortment of crystals', 0),
 ('images/StagheadFern.jpg', 'Staghead fern', 0);
 
+--GET Query
 SELECT * FROM "gallery";
+
+--POST Query
+INSERT INTO "gallery" ("path", "description") VALUES ($1, $2);
+
+--PUT Query
+UPDATE "gallery" SET "likes" = likes + 1 WHERE id=$1;
+
+--DELETE Query
+DELETE FROM "gallery" WHERE id=$1;
+
+

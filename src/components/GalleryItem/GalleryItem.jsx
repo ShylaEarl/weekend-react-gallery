@@ -15,7 +15,7 @@ function GalleryItem(props) {
     //PUT request to update like counter (logic in router)
     const updateLikes = (event) => {
         let id = event.currentTarget.dataset.id;
-        console.log('like button clicked for image:', id);
+        //console.log('like button clicked for image:', id);
 
         axios.put(`/gallery/${id}`)
             .then((response) => {
@@ -41,11 +41,11 @@ function GalleryItem(props) {
     //DELETE Request to remove image
     const deleteImage = (event) => {
         let id = event.currentTarget.dataset.id;
-        console.log('Delete button clicked for', id);
+        //console.log('Delete button clicked for', id);
 
         axios.delete(`/gallery/${id}`)
             .then(response => {
-                console.log('in DELETE', response);
+                //console.log('in DELETE', response);
                 props.getImage();
             })
             .catch(error => {
