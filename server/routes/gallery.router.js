@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const galleryItems = require('../modules/gallery.data');
+//TODO add pool to connect to DB
 
 // DO NOT MODIFY THIS FILE FOR BASE MODE
 
@@ -20,5 +21,8 @@ router.put('/like/:id', (req, res) => {
 router.get('/', (req, res) => {
     res.send(galleryItems);
 }); // END GET Route
+
+//POST Route
+router.post('/', )
 
 module.exports = router;
