@@ -1,7 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const galleryItems = require('../modules/gallery.data');
-//TODO add pool to connect to DB
+const pool = require('../modules/pool.js');
+
+//***USE FOR BASE MODE*** const galleryItems = require('../modules/gallery.data');
 
 // DO NOT MODIFY THIS FILE FOR BASE MODE
 
@@ -19,10 +20,28 @@ router.put('/like/:id', (req, res) => {
 
 // GET Route
 router.get('/', (req, res) => {
-    res.send(galleryItems);
+    let sqlString = 'SELECT * FROM gallery;';
+    pool.query(sqlString)
+        .then(result => {
+            res.send(result.rows);
+        })
+        .catch(error => {
+            console.log('error in GET router', error);
+            res.sendStatus(500);
+        });
 }); // END GET Route
 
 //POST Route
-router.post('/', )
+router.post('/', (req, res) => {
+    let sqlString = 'INSERT INTO gallery ("path", "description") VALUES ($1, $2);';
+    pool.query(sqlString, [req.body.path, req.body.description])
+    .then(result => {
+        res.sendStatus(201);
+    })
+    .catch(error => {
+        console.log('error in POST', error);
+       res.sendStatus(500); 
+    });
+}); //END POST Route
 
 module.exports = router;
