@@ -7,7 +7,7 @@ import GalleryForm from '../GalleryForm/GalleryForm.jsx';
 
 function App() {
 
-  let [galleryList, setGalleryList] = useState([]);
+  const [galleryList, setGalleryList] = useState([]);
 
   //on page load, render data array to DOM
   useEffect(() => {
@@ -24,10 +24,13 @@ function App() {
         setGalleryList(response.data);
       })
       .catch(error => {
-        console.log(error);
+        console.log('in GET', error);
       });
   }
 
+  // TODO Move PUT Route here and pass to GalleryList as prop
+
+  
   return (
     <div className="App">
       <GalleryHeader />

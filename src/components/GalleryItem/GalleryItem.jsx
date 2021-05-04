@@ -1,5 +1,5 @@
 import './GalleryItem.css';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 
 function GalleryItem(props) {
@@ -27,21 +27,21 @@ function GalleryItem(props) {
             });
     }
 
-    //conditional rendering for like message 
-    const getMessage = () => {
-        if (props.likes === 1) {
-            //singular because it is 1 time
-            return (<p>{props.likes} person loves this.</p>)
-        } else {
-            //zero or multiple 'times' so plural
-            return (<p>{props.likes} people love this.</p>)
-        }
-    }//end getMessage
+    // //conditional rendering for like message 
+    // const getMessage = () => {
+    //     if (props.likes === 1) {
+    //         //singular because it is 1 time
+    //         return (<p>{props.likes} person loves this.</p>)
+    //     } else {
+    //         //zero or multiple 'times' so plural
+    //         return (<p>{props.likes} people love this.</p>)
+    //     }
+    // }//end getMessage
 
     //DELETE Request to remove image
     const deleteImage = (event) => {
         let id = event.currentTarget.dataset.id;
-        //console.log('Delete button clicked for', id);
+        console.log('Delete button clicked for', id);
 
         axios.delete(`/gallery/${id}`)
             .then(response => {
@@ -74,10 +74,12 @@ function GalleryItem(props) {
                 Love It!
             </button>
             <br></br>
-            {getMessage()}
+            {/* {getMessage()} */}
+            <p>{props.likes} {props.likes === 1 ? 'person loves' : 'people love'} this.</p>
             <button onClick={deleteImage}
                 className="deleteButton"
-                data-id={props.id}>
+                data-id={props.id}
+                >
                 Delete
             </button>
         </div>
