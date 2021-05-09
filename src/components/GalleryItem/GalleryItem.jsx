@@ -14,10 +14,10 @@ function GalleryItem(props) {
 
     //PUT request to update like counter (logic in router)
     const updateLikes = (event) => {
-        let id = event.currentTarget.dataset.id;
-        //console.log('like button clicked for image:', id);
+        //let id = event.target.value;
+        console.log('like button clicked for image:', props);
 
-        axios.put(`/gallery/${id}`)
+        axios.put(`/gallery/${props.image.id}`)
             .then((response) => {
                 //console.log('in PUT', response);
                 props.getImage();
@@ -27,20 +27,11 @@ function GalleryItem(props) {
             });
     }
 
-    // //conditional rendering for like message 
-    // const getMessage = () => {
-    //     if (props.likes === 1) {
-    //         //singular because it is 1 time
-    //         return (<p>{props.likes} person loves this.</p>)
-    //     } else {
-    //         //zero or multiple 'times' so plural
-    //         return (<p>{props.likes} people love this.</p>)
-    //     }
-    // }//end getMessage
-
     //DELETE Request to remove image
-    const deleteImage = (event) => {
-        let id = event.currentTarget.dataset.id;
+    const deleteImage = (id) => (event) => {
+        //let id = event.currentTarget.dataset.id;
+        //let id = event.target.value;
+        //let id = event.target.value;
         console.log('Delete button clicked for', id);
 
         axios.delete(`/gallery/${id}`)
@@ -58,27 +49,27 @@ function GalleryItem(props) {
             {swap && <img
                 onClick={imageSwap}
                 className="image"
-                src={props.path}
-                alt={props.description}
+                src={props.image.path}
+                alt={props.image.description}
                 width='150'
             />}
             {!swap && <div
                 onClick={imageSwap}
                 className="description">
-                {props.description}
+                {props.image.description}
             </div>}
             <br></br>
             <button onClick={updateLikes}
                 className="loveButton"
-                data-id={props.id}>
+                //value={props.image.id}
+                >
                 Love It!
             </button>
             <br></br>
-            {/* {getMessage()} */}
-            <p>{props.likes} {props.likes === 1 ? 'person loves' : 'people love'} this.</p>
-            <button onClick={deleteImage}
+            <p>{props.image.likes} {props.image.likes === 1 ? 'person loves' : 'people love'} this.</p>
+            <button onClick={deleteImage(props.image.id)}
                 className="deleteButton"
-                data-id={props.id}
+                //value={props.id}
                 >
                 Delete
             </button>
@@ -87,5 +78,18 @@ function GalleryItem(props) {
 }
 
 export default GalleryItem;
+
+// //conditional rendering for like message 
+    // const getMessage = () => {
+    //     if (props.likes === 1) {
+    //         //singular because it is 1 time
+    //         return (<p>{props.likes} person loves this.</p>)
+    //     } else {
+    //         //zero or multiple 'times' so plural
+    //         return (<p>{props.likes} people love this.</p>)
+    //     }
+    // }//end getMessage
+
+// from line 66 {/* {getMessage()} */}
 
 
